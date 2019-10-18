@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+    <title>Train Tracker</title>
+</head>
+<body>
+   
+
+    <div class="jumbotron bg-info text-light border border-dark mx-3">
+        <h1>Train Tracker</h1>
+        <h5>Enter in train information to get started</h5>
+        <p>Each entry is tracked and added to a live database</p>
+    </div>
+
+    <div class="row mx-3">
+        <div class="col-md-12">
+            <div class="card bg-dark text-light">
+                <div class="card-header bg-light text-dark">
+                    Train Information
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered justify-content-between" id="trainTable">
+                    <thead>
+                        <tr class="justify-content-between">
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-3">
+        <div class="col-md-12">
+            <div class="card bg-dark text-light">
+                <div class="card-header bg-light text-dark">
+                    Add Trains to Track
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="train-name-input">Train Name</label>
+                            <input class="form-control" id="train-name" placeholder="Enter name here" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="train-name-input">Destination</label>
+                            <input class="form-control" id="train-destination" placeholder="Enter destination here" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="train-name-input">First Train Time (HH:MM - Military Time)</label>
+                            <input class="form-control" id="train-first" placeholder="Enter first train time here" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="train-name-input">Frequency (min)</label>
+                            <input class="form-control" id="train-frequency" placeholder="Enter train frequency in minutes here" type="text">
+                        </div>
+                    </form>
+                    <button class="btn btn-outline-light" id="add-train-button">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>
