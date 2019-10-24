@@ -23,11 +23,6 @@ $("#add-train-button").on("click", function (event) {
     var trainFirst = $("#train-first").val().trim()
     var trainFrequency = $("#train-frequency").val().trim()
 
-    console.log(trainName);
-    console.log(trainDestination);
-    console.log(trainFirst);
-    console.log(trainFrequency);
-
     var newTrain = {
         name: trainName,
         destination: trainDestination,
@@ -49,5 +44,31 @@ $("#add-train-button").on("click", function (event) {
 
 //Database to table
 database.ref().on("child_added", function (childSnapshot) {
-    console.log(childSnapshot)
+    console.log(childSnapshot.val());
+
+    var trainName = childSnapshot.val().name;
+    var trainDestination = childSnapshot.val().destination;
+    var trainFirst = childSnapshot.val().first;
+    var trainFrequency = childSnapshot.val().frequency;
+
+    var trainFirstTime = moment(trainFirst, "HH:mm").subtract(1, "years");
+    var currentTime = moment();
+    var diffTime = moment().diff(moment(trainFirstTime), "minutes")
+    var timeRemaining = diffTime % trainFrequency;
+    var trainAway = trainFrequency - timeRemaining;
+    var trainNext = moment().add(trainAway, "minutes");
+
+
+
+    var newRow = $("<tr>").append(
+    $("<td>").text(trainName),
+    $("<td>").text(trainDestination),
+    $("<td>").text(trainFrequency),
+    $("<td>").text(trainNext),
+    $("<td>").text(trainAway),
+    );
+
+    $("#trainTable").append(newRow)
+    
+
 })
